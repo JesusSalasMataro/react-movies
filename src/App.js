@@ -32,6 +32,20 @@ class Searcher extends Component {
     }
 }
 
+class Movie extends Component {
+    render() {
+        return (
+            <div class="movie">
+                <img src={this.props.urlImage} alt="Movie cover" height={200} width={150} />
+                <br/>
+                <span>{this.props.title}</span>
+                <br/>
+                <span>{this.props.year}</span>
+            </div>
+        )
+    }
+}
+
 class MoviesList extends Component {
   
     render() {
@@ -39,7 +53,7 @@ class MoviesList extends Component {
         let movies = 'No results found'
 
         if (this.props.movies !== undefined) {
-          movies = this.props.movies.map(m => <p>{m.Title}</p>)
+          movies = this.props.movies.map(m => <Movie key={m.imdbID} urlImage={m.Poster} title={m.Title} year={m.Year} />)
         }  
 
         return ( 
