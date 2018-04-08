@@ -11,7 +11,7 @@ export default class App extends Component {
     }
 
     loadMovies = (movies) => {
-        this.setState({movies: movies})
+        this.setState({movies})
     }
 
     render() {
