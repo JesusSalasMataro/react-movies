@@ -9,7 +9,11 @@ export default class Searcher extends Component {
     loadMovies = () => {
         fetch('http://www.omdbapi.com/?apikey=8f92894a&s=' + this.state.searchText)
             .then(response => response.json())
-            .then(response => this.props.loadMovies(response.Search))
+            .then(response => {
+                response.Search === undefined
+                    ?   this.props.loadMovies([])
+                    :   this.props.loadMovies(response.Search)                
+            })
     }
 
     updateSearchText = (event) => {

@@ -7,7 +7,7 @@ export default class MoviesList extends Component {
     render() {
         let moviesList
 
-        this.props.movies === undefined 
+        this.props.movies.length === 0
             ?   moviesList = 'No results found'
             :   moviesList = this.props.movies.map(m => 
                     <Movie 

@@ -7,11 +7,12 @@ import './App.css';
 export default class App extends Component {
 
     state = {
-        movies: []
+        movies: [],
+        searchUsed: false
     }
 
     loadMovies = (movies) => {
-        this.setState({movies})
+        this.setState({movies, searchUsed: true})
     }
 
     render() {
@@ -19,7 +20,11 @@ export default class App extends Component {
             <div className="App">
                 <Title>Movies finder</Title>
                 <Searcher loadMovies={this.loadMovies}/>
-                <MoviesList movies={this.state.movies}/>
+                
+                {
+                    this.state.searchUsed &&
+                    <MoviesList movies={this.state.movies}/>
+                }
             </div>
         )
     }
