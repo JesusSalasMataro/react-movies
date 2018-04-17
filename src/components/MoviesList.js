@@ -12,9 +12,10 @@ export default class MoviesList extends Component {
             :   moviesList = this.props.movies.map(m => 
                     <Movie 
                         key={m.imdbID} 
+                        id={m.imdbID}
                         urlImage={m.Poster} 
                         title={m.Title} 
-                        year={m.Year} 
+                        year={parseInt(m.Year, 10)} 
                     />
             )
     
@@ -26,6 +27,6 @@ export default class MoviesList extends Component {
     }
 }
 
-MoviesList.PropTypes = {
+MoviesList.propTypes = {
     movies: PropTypes.array
 }
